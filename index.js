@@ -17,20 +17,15 @@ app.listen(3000, () => {
     ) {
       if (error) {
         console.log(error);
-        //   res.render("Home", { html: "Some Error has happened" });
       } else {
-        //   console.log(body);
-        //   res.render("Home", { html: body });
         $ = cheerio.load(body);
         var ds = $(body).find("img.thumb");
-        console.log(ds)
-        //   array_pict = [];
         ds.each(function(i, e) {
     
           str = "http://ngamvn.net" + e["attribs"]["src"];
           const options = {
             url: str,
-            dest: "C:/Users/lequa/OneDrive/Desktop/a"
+            dest: "C:/Users/lequa/OneDrive/Desktop/Ngam"
           };
 
           download
@@ -39,14 +34,7 @@ app.listen(3000, () => {
               console.log("Saved to", filename);
             })
             .catch(err => console.error(err));
-          // array_pict.push(str);
         });
-        //   console.log(array_pict);
-        //   res.render("Home", { html: array_pict });
-        //   console.log($(this).text());
-        //   ds.each(function(i, e) {
-        //     console.log(e["attribs"]["href"]);
-        //   });
       }
     });
   }
